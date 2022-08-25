@@ -10,7 +10,20 @@ connectDB();
 
 const transactions = require('./routes/transactions')
 
+var cors = require('cors')
+
+const corsOptions = {
+    origin: '*',
+    credentials: true,
+  }
+
 const app = express();
+
+app.use(cors(corsOptions),express.json())
+
+if(process.env.NODE_ENV ==='development'){
+    app.use(morgan('dev'))
+}
 
 app.use('/api/v1/transacations', transactions);
 
