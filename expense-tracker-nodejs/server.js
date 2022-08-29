@@ -13,7 +13,7 @@ const transactions = require('./routes/transactions')
 var cors = require('cors')
 
 const corsOptions = {
-    origin: '*',
+    origin: 'http://localhost:5000',
     credentials: true,
   }
 
